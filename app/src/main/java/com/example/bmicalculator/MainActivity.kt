@@ -196,6 +196,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             tv_height_value.text = number
         } else {
             tv_weight_value.text = number
+            
         }
 
     }
