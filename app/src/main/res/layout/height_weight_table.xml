@@ -15,21 +15,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="Weight :"
-            android:textSize="40dp"
             android:layout_marginVertical="30dp"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            android:text="Weight :"
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/tv_weight_value"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="30dp"
             android:layout_toRightOf="@id/tv_weight_lable"
             android:text="60"
             android:textColor="#FF5722"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,14 +69,15 @@
 
         <TextView
             android:id="@+id/tv_height_value"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="30dp"
             android:layout_toRightOf="@id/tv_height_lable"
             android:text="170"
             android:textColor="#605C5C"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"

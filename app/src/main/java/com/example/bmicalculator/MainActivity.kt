@@ -4,9 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var key_pad: View
@@ -14,7 +12,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var tv_weight_value: TextView
     lateinit var tv_height_value: TextView
     lateinit var tv_bmi_value: TextView
-
+    lateinit var tv_bmi_status: TextView
     var number: String = ""
 
 
@@ -41,7 +39,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<Button>(R.id.b_zero).setOnClickListener(this)
         findViewById<Button>(R.id.b_dot).setOnClickListener(this)
         findViewById<Button>(R.id.b_ac).setOnClickListener(this)
+        findViewById<ImageButton>(R.id.ib_back).setOnClickListener(this)
         tv_bmi_value = findViewById(R.id.tv_bmi_value)
+        tv_bmi_status =findViewById(R.id.tv_bmi_status)
 
     }
 
@@ -51,19 +51,39 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (view_id) {
 
             R.id.b_go -> {
+                println(tv_height_value.text.toString()+"1"+tv_weight_value.text.toString()+"2")
+                if(tv_height_value.text.toString()=="--"||tv_weight_value.text.toString()=="--"
+                    ||tv_height_value.text.toString().trim().length==0||tv_weight_value.text.toString().trim().length==0){
+
+                    Toast.makeText(this@MainActivity,"height and weight should be given",Toast.LENGTH_LONG).show()
+                    return
+                }
+                println()
                 val weight: Double = tv_weight_value.text.toString().toDouble()
                 val height: Double = tv_height_value.text.toString().toDouble()
+
+                if(height>250||weight>250){
+                    Toast.makeText(this@MainActivity,"height and weight should be less than 250",Toast.LENGTH_LONG).show()
+                    return
+                }
+
                 calculateBmi(height, weight)
                 viewBmiResult()
             }
 
             R.id.tv_weight_value -> {
+                if(number.trim().length==0){
+                    tv_weight_value.text="--"
+                }
                 viewKeyPad()
                 selectValueColor("weight")
                 number = ""
             }
 
             R.id.tv_height_value -> {
+                if(number.trim().length==0){
+                    tv_height_value.text="--"
+                }
                 viewKeyPad()
                 selectValueColor("height")
                 number = ""
@@ -84,9 +104,26 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.b_ac ->{
                 number=""
                 if (tv_height_value.currentTextColor == Color.parseColor("#FF5722")) {
-                    setValue("height", "")
+                    setValue("height", "--")
                 } else {
-                    setValue("weight", "")
+                    setValue("weight", "--")
+                }
+            }
+
+            R.id.ib_back ->{
+
+                if (tv_height_value.currentTextColor == Color.parseColor("#FF5722")) {
+                    if(number.trim().length==0){
+                        tv_height_value.text="--"
+                        return
+                    }
+                    deleteNumber("height")
+                } else {
+                    if(number.trim().length==0){
+                        tv_weight_value.text="--"
+                        return
+                    }
+                    deleteNumber("weight")
                 }
             }
 
@@ -121,11 +158,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     fun setValue(height_weight: String, value: String) {
 
+        if(number.trim().length>3){
+            return
+        }
         if (height_weight === "height") {
             number += value
             tv_height_value.text = number
         } else {
-
             number += value
             tv_weight_value.text = number
         }
@@ -134,6 +173,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     fun calculateBmi(height: Double, weight: Double) {
         val bmi: Double = weight / ((height / 100) * (height / 100))
         tv_bmi_value.text = String.format("%.1f", bmi)
+
+        if(bmi<18.5){
+            tv_bmi_status.text ="Under Weight"
+            tv_bmi_status.setTextColor(Color.parseColor("#1F38C5"))
+        }else if(bmi>25.0){
+            tv_bmi_status.text ="OverWeight"
+            tv_bmi_status.setTextColor(Color.parseColor("#F40202"))
+        }else{
+            tv_bmi_status.text ="Normal"
+            tv_bmi_status.setTextColor(Color.parseColor("#08AF0F"))
+        }
+
+    }
+
+    fun deleteNumber(height_weight: String){
+        if(number.length!=0){
+            number = number.subSequence(0,number.length-1).toString()
+        }
+
+        if (height_weight === "height") {
+            tv_height_value.text = number
+        } else {
+            tv_weight_value.text = number
+        }
 
     }
 }
