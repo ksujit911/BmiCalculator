@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_weight_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Weight :"
+            android:textSize="40dp"
+            android:layout_marginVertical="30dp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:id="@+id/tv_weight_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/tv_weight_lable"
+            android:text="60"
+            android:textColor="#FF5722"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_weight_value"
+            android:layout_marginLeft="45dp"
+            android:layout_toRightOf="@id/tv_weight_lable"
+            android:text="Kilograms"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_below="@id/rl_weight"
+        android:background="#7C7C7C"
+        android:layout_marginHorizontal="30dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_weight">
+
+        <TextView
+            android:id="@+id/tv_height_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginVertical="30dp"
+            android:layout_marginLeft="30dp"
+            android:text="Height :"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/tv_height_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/tv_height_lable"
+            android:text="170"
+            android:textColor="#605C5C"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_height_value"
+            android:layout_marginLeft="45dp"
+            android:layout_toRightOf="@id/tv_height_lable"
+            android:text="Centimeters"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_bmi_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/tv_bmi_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="20.68"
+            android:textColor="#FB450C"
+            android:textSize="70dp" />
+
+        <TextView
+            android:id="@+id/tv_bmi_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/tv_bmi_value"
+            android:text="BMI"
+            android:textSize="50dp" />
+
+        <TextView
+            android:id="@+id/tv_bmi_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_bmi_lable"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/tv_bmi_value"
+            android:text="Normal"
+            android:textColor="#08AF0F"
+            android:textSize="30dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@id/tv_bmi_status"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:background="#737171" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bmi_status_lable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_bmi_result">
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Information"
+            android:textSize="30dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_bmi_status_lable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_info"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Under Weight"
+                android:textColor="#1F38C5"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Normal"
+                android:textColor="#08AF0F"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Over Weight"
+                android:textColor="#F40202"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_bmi_status_colour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_bmi_status_lable"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:background="#1F38C5" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:background="#08AF0F" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:background="#F40202" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@id/ll_bmi_status_colour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="16.0"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="15dp"
+                android:text="18.5"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="25.0"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="40.0"
+                android:textSize="18dp"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
